@@ -48,9 +48,9 @@ function App() {
             <PokemonThumbnail 
               key={index}
               id={pokemon.id} 
-              name={pokemon.name} 
+              /* name={pokemon.name} 
               image={pokemon.sprites.other.dream_world.front_default} 
-              type={pokemon.types[0].type.name}
+              type={pokemon.types[0].type.name} */
             />  
           )}
         </div>

@@ -2,37 +2,49 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ============================================================================== */
+.app-container {
+  outline: 1px solid green;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.all-container {
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.load-more {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
 }
+.load-more:hover {
+  background: rgb(221, 221, 221);
+}
+.load-more:active {
+  transform: translateY(3px);
+}
+
+.poke_card {
+  border: 1px solid blue;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.poke_sprite {
+  border: 1px solid red;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+
+
+
