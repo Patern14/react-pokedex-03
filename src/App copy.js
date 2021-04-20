@@ -1,17 +1,23 @@
 import React, {useEffect, useState} from "react";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
-import PokemonThumbnail from "./components/PokemonThumbnail";
+import PokemonThumbnail from "./components/PokemonCard";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import PokemonInfos from "./components/PokemonList";
+import PokemonDetails from "./components/PokemonDetails";
 
 function App() {
 
   const [allPokemons, setAllPokemons] = useState([])
   const [loadMore, setLoadMore] = useState("https://pokeapi.co/api/v2/pokemon?limit=20")
+  //const [pokemon, setPokemon] = useState({})
 
   const getAllPokemons = async () => {
     const res = await fetch(loadMore);
     const data = await res.json();
 
-    //setLoadMore(data.next);
+    setLoadMore(data.next);
 
     function createPokemonObject (result) {
       result.forEach(async (pokemon) => {
@@ -22,44 +28,51 @@ function App() {
       });
     };
     createPokemonObject(data.results);
-    //console.log(allPokemons);
+    console.log(data)
+    console.log(allPokemons)
   };
  
   useEffect(() => {
     getAllPokemons();
-    //console.log(allPokemons);
   }, []);
 
-  /* function logPokemons() {
-    console.log("Log All Pokemons")
-    console.log(allPokemons)
-  } */
-  
-
   return (
-    <div className="app-container">
-      <h1>Pokedex 03</h1>
-      {/* <button className="load-more" onClick={logPokemons}  >Log All Pokemons</button> */}
+    <Router>
+      <div className="app-container">
+        <Header />
+        
+        <div className="pokemon-container" >
+          <div className="all-container">
+            {allPokemons.map((pokemon, index) => 
+              <PokemonThumbnail 
+                key={index}
+                id={pokemon.id} 
+                name={pokemon.name} 
+                image={pokemon.sprites.other.dream_world.front_default} 
+                type={pokemon.types[0].type.name}
+                typeb={pokemon.types[1] ? pokemon.types[1].type.name : ""}  // Add second type if exist.
+              />  
+            )}
+          </div>
 
-      <div className="pokemon-container" >
-        <div className="all-container">
-        {/* {allPokemons.map(pokemon => <li key={pokemon.id} >{pokemon.name} </li>)} */}
-          {allPokemons.map((pokemon, index) => 
-            <PokemonThumbnail 
-              key={index}
-              id={pokemon.id} 
-              /* name={pokemon.name} 
-              image={pokemon.sprites.other.dream_world.front_default} 
-              type={pokemon.types[0].type.name} */
-            />  
-          )}
+          <button className="load-more" onClick={getAllPokemons} >Add more</button>
+          
         </div>
 
-        <button className="load-more" >Add more</button>
-        
+          {allPokemons &&
+            <PokemonInfos pokemon={allPokemons.results} />
+          }
+
+        <Footer />
       </div>
 
-    </div>
+      <Switch>  {/* We can have different routes inside Switch */}
+        <Route path="/pokemondetails/:slug">  {/* Allow url modif */}
+          <PokemonDetails></PokemonDetails>
+        </Route>
+      </Switch>
+
+    </Router>
   );
 }
 

@@ -1,11 +1,13 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
-const PokemonThumbnail = ({id, name, image, type, typeb}) => {
+const PokemonCard = ({id, name, image, type, typeb}) => {
 
     const style = `poke_card_content ${type}`
     const typeStyle = `type ${type}`
     const typebStyle = `typeb ${typeb}`
     return (
+        <Link to={`/pokemondetails/${id}`} key={id} >
         <div className="poke_card" >
             <div className={style} >
                 <h4 className="pokeId" >#0{id}</h4>
@@ -21,7 +23,8 @@ const PokemonThumbnail = ({id, name, image, type, typeb}) => {
 
             </div>
         </div>
+        </Link>
     )
 }
 
-export default PokemonThumbnail;
+export default PokemonCard;
