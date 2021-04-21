@@ -6,44 +6,34 @@ const PokemonDetails = () => {
     const [pokemon, setPokemon] = useState();
     const [species, setSpecies] = useState();
     const [evolutions, setEvolutions] = useState();
-    //const [generation, setGeneration] = useState();
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${slug}/`)
             .then((res) => res.json())
             .then((data) => {
                 console.log("Slug: " + slug)
-                console.log("%cfetch 1", "color:red; font-size:20px")
                 setPokemon(data)
-                console.log(data);
+                console.log(data)
+                console.log("%cfetch 1 => pokemon set", "color:red; font-size:20px")
 
                 fetch(data.species.url)
                     .then(res => res.json())
                     .then(data => {
-                        console.log("%cfetch 2", "color:blue; font-size:20px")
                         setSpecies(data)
                         console.log(data)
+                        console.log("%cfetch 2 => species set", "color:blue; font-size:20px")
 
                         fetch(data.evolution_chain && data.evolution_chain.url)
                             .then(res => res.json())
                             .then(data => {
-                                console.log("%cfetch 3", "color:green; font-size:20px")
                                 setEvolutions(data)
                                 console.log(data)
+                                console.log("%cfetch 3 => evolutions set", "color:green; font-size:20px")
                             })
                     })
             })
-                            
-        /* console.log(pokemon)
-        console.log(species) 
-        console.log(evolutions) */
         
     }, [slug]);
-
-    /* console.log(pokemon)
-    console.log(species) 
-    console.log(evolutions) */
-
 
     return (
         <>
@@ -52,10 +42,10 @@ const PokemonDetails = () => {
             <h1>Pokemon Details Component - {slug} </h1> 
             <p>Pokemon Species URL: <a href={pokemon.species.url}>{pokemon.species.url}</a></p>
             <p>Species Evolution_Chain URL: <a href={species && species.evolution_chain.url}> {species && species.evolution_chain.url}</a></p>
-            <p>Evolutions Chain Species Name: <a href={evolutions && evolutions.chain.species.name} >{evolutions && evolutions.chain.species.name}</a></p>
+            <p>Evolutions Chain Species Name: <a href={evolutions && evolutions} >{evolutions && evolutions.chain.species.name}</a></p>
             <div className="poke_portrait">
                 <h4 className="portrait_name" >{pokemon.name} </h4>
-                <h4 className="portrait_gen">{/* {generation.names[5].name} */} </h4>
+                <h4 className="portrait_gen">{species && species.generation.name} </h4>
                 <img src={pokemon.sprites.other.dream_world.front_default} alt="poke sprite" className="portrait_img" />
             </div>
             <div className="poke_infos">
@@ -73,9 +63,18 @@ const PokemonDetails = () => {
                 <div>Speed: {pokemon.stats[5].base_stat} </div> 
             </div>
             <div className="poke_evolutions">
-                <div>Evo 1:  </div> 
-                <div>Evo 2:  </div> 
-                <div>Evo 3:  </div> 
+                <div>Evo 1: {evolutions && evolutions.chain.species.name} </div> 
+
+                <div>Evo 2: {evolutions && typeof evolutions.chain.evolves_to[0] != "undefined" 
+                    ? evolutions.chain.evolves_to[0].species.name 
+                    : "No Evo 2"} 
+                </div> 
+
+                <div>Evo 3: {(typeof evolutions != "undefined" && typeof evolutions.chain.evolves_to[0] != "undefined" && typeof evolutions.chain.evolves_to[0].evolves_to[0] != "undefined") 
+                    ? evolutions.chain.evolves_to[0].evolves_to[0].species.name 
+                    : "No Evo 3"} 
+                </div> 
+
             </div>
         </div>
         }
