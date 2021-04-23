@@ -186,8 +186,12 @@ h4::first-letter {
   Pokemon Details
 ================================================== */
 .pokemon_details {
-  background: #78C850;
+  /* background: #78C850; */
+  background: magenta;
   padding: 5rem;
+}
+#portrait_gen {
+  text-transform: uppercase;
 }
 
 /* =================================================
