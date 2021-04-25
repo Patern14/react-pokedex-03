@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {useParams, Link} from "react-router-dom";
 
 const PokemonDetails = () => {
+    //console.log("%cPokemonDetails COMPONENT", "color:magenta; font-size:25px")
+
     let {slug} = useParams();
     const [pokemon, setPokemon] = useState();
     const [species, setSpecies] = useState();
@@ -11,7 +13,7 @@ const PokemonDetails = () => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${slug}/`)
             .then((res) => res.json())
             .then((data) => {
-                console.log("Slug: " + slug)
+                //console.log("Slug: " + slug)
                 setPokemon(data)
 
                 fetch(data.species.url)
@@ -38,12 +40,16 @@ const PokemonDetails = () => {
     const ifEvoThree = typeof evolutions != "undefined" && typeof evolutions.chain.evolves_to[0] != "undefined" && typeof evolutions.chain.evolves_to[0].evolves_to[0] != "undefined";
     const evoThreeName = ifEvoThree && evolutions.chain.evolves_to[0].evolves_to[0].species.name;
 
-    console.log(species && typeof species.generation.name)
+    //console.log(species && typeof species.generation.name)
+
+    /* Background color ================================= */
+    const type = pokemon && pokemon.types[0].type.name
+    const style = `pokemon_details ${type}`
 
     return (
         <>
         {pokemon && 
-        <div className="pokemon_details" >
+        <div className={style} >
             <h1>Pokemon Details Component - {slug} </h1> 
             
             <div className="poke_portrait">
@@ -58,7 +64,7 @@ const PokemonDetails = () => {
                 <div>Height: {pokemon.height/10} m</div> 
                 <div>Weight: {pokemon.weight/10} kg </div> 
             </div>
-            
+
             <div className="poke_stats">
                 <div>HP: {pokemon.stats[0].base_stat} </div> 
                 <div>Atk: {pokemon.stats[1].base_stat} </div> 

@@ -1,31 +1,32 @@
+/* =========================================================================================
+    Summary
+============================================================================================ 
+    General styling
+
+    Header
+
+    Footer
+
+    PokemonList
+
+    PokemonCard
+
+    Types Background
+
+    PokemonDetails
+
+    PokemonInfos
+*/
+
+
+/* ==============================================================
+    General styling
+============================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-header, footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-}
-
-header {
-  width: 100%;
-  background: linear-gradient(135deg, #ffde82 0%, #F4CE61 100%);
-  margin-bottom: 5vh;
-  padding: 2rem;
-}
-
-footer {
-  width: 100%;
-  background: linear-gradient(135deg, #2c2c2c 0%, #000000 100%);
-  color: #ffffff;
-  margin-top: 5vh;
-}
-
-/* ============================================================================== */
 
 .app-container {
   outline: 1px solid #008000;
@@ -35,14 +36,51 @@ footer {
   align-items: center;
 }
 
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+/* ==============================================================
+    Header
+============================================================== */
+header {
+  width: 100%;
+  background: linear-gradient(135deg, #ffde82 0%, #F4CE61 100%);
+  margin-bottom: 5vh;
+  padding: 2rem;
+}
+
+/* ==============================================================
+    Footer
+============================================================== */
+footer {
+  width: 100%;
+  background: linear-gradient(135deg, #2c2c2c 0%, #000000 100%);
+  color: #ffffff;
+  margin-top: 5vh;
+}
+
+/* ==============================================================
+  PokemonList
+============================================================== */
 .all-container {
   display: flex;
   flex-wrap: wrap;
 }
 
+.load-more-container {
+  /* outline: 1px solid magenta; */
+  display: flex;
+  justify-content: center;
+}
 .load-more {
-  padding: 0.5rem 1rem;
+  margin-top: 3rem;
+  padding: 1rem 2rem;
   border-radius: 5px;
+  font-size: large;
 }
 .load-more:hover {
   background: rgb(221, 221, 221);
@@ -52,7 +90,7 @@ footer {
 }
 
 /* =================================================
-  Poke Card
+  PokemonCard
 ================================================== */
 .poke_card {
   /* border: 1px solid blue; */
@@ -129,7 +167,6 @@ h4::first-letter {
 /* =================================================
   Types Backgrounds
 ================================================== */
-
 .normal {
   background: linear-gradient(135deg, #c8c89f 0%, #A8A878 100%);
 }
@@ -183,10 +220,11 @@ h4::first-letter {
 }
 
 /* =================================================
-  Pokemon Details
+  PokemonDetails
 ================================================== */
 .pokemon_details {
-  background: #78C850;
+  /* background: #78C850; */
+  /* background: #2d7fdd; */
   padding: 5rem;
 }
 
@@ -217,12 +255,12 @@ h4::first-letter {
 }
 
 /* =================================================
-  Pokemon Infos
+  PokemonInfos
 ================================================== */
-.pokemon_infos {
+/* .pokemon_infos {
   background: #41f9ff;
   padding: 5rem;
 }
 .poke_link {
   margin: 1rem;
-}
+} */

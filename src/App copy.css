@@ -186,12 +186,34 @@ h4::first-letter {
   Pokemon Details
 ================================================== */
 .pokemon_details {
-  /* background: #78C850; */
-  background: magenta;
+  background: #78C850;
   padding: 5rem;
+}
+
+.poke_portrait {
+  outline: 1px solid red;
+}
+.portrait_name {
+  font-size: 2rem;
+}
+.portrait_img {
+  width: 300px;
+  height: 300px;
 }
 #portrait_gen {
   text-transform: uppercase;
+}
+
+.poke_infos {
+  outline: 1px solid red;
+}
+
+.poke_stats {
+  outline: 1px solid red;
+}
+
+.poke_evolutions {
+  outline: 1px solid red;
 }
 
 /* =================================================
@@ -200,4 +222,7 @@ h4::first-letter {
 .pokemon_infos {
   background: #41f9ff;
   padding: 5rem;
+}
+.poke_link {
+  margin: 1rem;
 }
