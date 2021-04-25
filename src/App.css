@@ -14,8 +14,6 @@
     Types Background
 
     PokemonDetails
-
-    PokemonInfos
 */
 
 
@@ -252,15 +250,20 @@ h4::first-letter {
 
 .poke_evolutions {
   outline: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+.evo_one, .evo_two, .evo_three {
+  outline: 1px solid green;
+  margin: 1rem 0rem 1rem 0rem;
+  padding: 0.5rem 0rem;
+}
+.evo_one > img, .evo_two > img, .evo_three > img {
+  outline: 1px solid blue;
+  background: darkcyan;
+  margin: 0.5rem;
+  width: 100px;
+  height: 100px;
 }
 
-/* =================================================
-  PokemonInfos
-================================================== */
-/* .pokemon_infos {
-  background: #41f9ff;
-  padding: 5rem;
-}
-.poke_link {
-  margin: 1rem;
-} */
+
