@@ -26,7 +26,13 @@
   padding: 0;
 }
 
+a:any-link {
+  text-decoration: none;
+  color: #000000;
+}
+
 .app-container {
+  height: 100%;
   outline: 1px solid #008000;
   display: flex;
   flex-direction: column;
@@ -38,24 +44,34 @@ header, footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  width: 100vw;
+  height: 15vh;
+}
+
+h4 {
+  /* margin: 0.5rem 1rem; */
+  font-size: 1rem;
+}
+h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
+  text-transform: uppercase;
 }
 
 /* ==============================================================
     Header
 ============================================================== */
 header {
-  width: 100%;
   background: linear-gradient(135deg, #ffde82 0%, #F4CE61 100%);
   margin-bottom: 5vh;
-  padding: 2rem;
+  /* padding: 2rem; */
+}
+.home_title:hover {
+  transform: scale(1.1);
 }
 
 /* ==============================================================
     Footer
 ============================================================== */
 footer {
-  width: 100%;
   background: linear-gradient(135deg, #2c2c2c 0%, #000000 100%);
   color: #ffffff;
   margin-top: 5vh;
@@ -114,14 +130,6 @@ footer {
   padding: 0.5rem;
   width: 100%;
   height: 100%;
-}
-
-h4 {
-  /* margin: 0.5rem 1rem; */
-  font-size: 1rem;
-}
-h4::first-letter {
-  text-transform: uppercase;
 }
 
 .pokeId {
@@ -222,12 +230,28 @@ h4::first-letter {
 ================================================== */
 .pokemon_details {
   /* background: #78C850; */
-  /* background: #2d7fdd; */
-  padding: 5rem;
+  background: floralwhite;
+  /* display: flex; */
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 80%;
+  height: 60vh;
+
+  box-shadow: 2px 3px 5px 2px grey;
 }
 
+/* ==================================================== */
 .poke_portrait {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
+  grid-area: 1 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+  box-shadow: 2px 3px 5px 2px grey;
 }
 .portrait_name {
   font-size: 2rem;
@@ -236,34 +260,68 @@ h4::first-letter {
   width: 300px;
   height: 300px;
 }
+
+/* ===================================================== */
+.poke_infos {
+  /* outline: 1px solid red; */
+  grid-area: 1 / 2 / 2 / 3;
+  /* background: seashell; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
 #portrait_gen {
   text-transform: uppercase;
 }
 
-.poke_infos {
-  outline: 1px solid red;
-}
-
+/* ===================================================== */
 .poke_stats {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
+  grid-area: 1 / 3 / 2 / 4;
+  /* background: seashell; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
 
+/* ==================================================== */
 .poke_evolutions {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
+  grid-area: 2 / 2 / 3/ 4;
+  /* background: seashell; */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+.evolutions {
+  display: flex;
+  justify-content: space-evenly;
 }
 .evo_one, .evo_two, .evo_three {
-  outline: 1px solid green;
+  /* outline: 1px solid green; */
   margin: 1rem 0rem 1rem 0rem;
-  padding: 0.5rem 0rem;
+  /* padding: 0.5rem 0rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .evo_one > img, .evo_two > img, .evo_three > img {
-  outline: 1px solid blue;
-  background: darkcyan;
-  margin: 0.5rem;
-  width: 100px;
-  height: 100px;
+  /* outline: 1px solid blue; */
+  /* background: darkcyan; */
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 2px 3px 5px 2px grey;
+}
+.evo_one:hover, .evo_two:hover, .evo_three:hover {
+  transform: scale(1.1);
 }
 
 
