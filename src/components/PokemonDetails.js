@@ -17,7 +17,6 @@ const PokemonDetails = () => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${slug}/`)
             .then((res) => res.json())
             .then((data) => {
-                //console.log("Slug: " + slug)
                 console.log(data)
                 setPokemon(data)
 
@@ -51,82 +50,94 @@ const PokemonDetails = () => {
         .then((res) => res.json())
         .then(data => {
             setEvoOneSprite(data.sprites.other.dream_world.front_default)
-        })
+        });
 
     ifEvoTwo && fetch(`https://pokeapi.co/api/v2/pokemon/${evoTwoName}/`)
         .then((res) => res.json())
         .then(data => {
             setEvoTwoSprite(data.sprites.other.dream_world.front_default)
-        })
+        });
 
     ifEvoThree && fetch(`https://pokeapi.co/api/v2/pokemon/${evoThreeName}/`)
         .then((res) => res.json())
         .then(data => {
             setEvoThreeSprite(data.sprites.other.dream_world.front_default)
-            console.log(evoThreeSprite)
-        })
+        });
 
-    /* Background color ================================= */
-    const type = pokemon && pokemon.types[0].type.name
-    const style = `pokemon_details ${type}`
+    /* Types and background color ================================= */
+    const typeA = pokemon && pokemon.types[0].type.name;
+    const typeB = pokemon && pokemon.types[1] && pokemon.types[1].type.name;
 
     return (
         <>
         {pokemon && 
-        <div className={style} >
-            {/* <h1>Pokemon Details Component - {slug} </h1>  */}
-            
-            <div className="poke_portrait">
-                <h4 className="portrait_name" >{pokemon.name} </h4>
-                <h4 id="portrait_gen">{species && species.generation.name} </h4>    {/* TODO: case styling */}
+        <div className="pokemon_details" >
+            <div className={`poke_portrait ${typeA}`} >
+                <h1>#{pokemon.id} </h1>
                 <img src={pokemon.sprites.other.dream_world.front_default} alt="poke sprite" className="portrait_img" />
+                <h2 className="portrait_name" >{pokemon.name} </h2>
             </div>
 
             <div className="poke_infos">
                 <h2>Infos</h2>
-                <div>Type 1: {pokemon.types[0].type.name}</div> 
-                <div>Type 2: {pokemon.types[1] ? pokemon.types[1].type.name : ""}</div> 
-                <div>Height: {pokemon.height/10} m</div> 
-                <div>Weight: {pokemon.weight/10} kg </div> 
+                <div id="portrait_gen">{species && species.generation.name} </div>    {/* TODO: case styling */}
+                <div className={`pokeType ${typeA}`} ><b>Type 1:</b>  {typeA}</div> 
+                <div className={`pokeType ${typeB}`} ><b>Type 2:</b>  {typeB}</div> 
+                <div><b>Height:</b>  {pokemon.height/10} m</div> 
+                <div><b>Weight:</b>  {pokemon.weight/10} kg </div> 
             </div>
 
             <div className="poke_stats">
                 <h2>Stats</h2>
-                <div>HP: {pokemon.stats[0].base_stat} </div> 
-                <div>Atk: {pokemon.stats[1].base_stat} </div> 
-                <div>Atk Spe: {pokemon.stats[3].base_stat} </div>  
-                <div>Def: {pokemon.stats[2].base_stat} </div> 
-                <div>Def Spe: {pokemon.stats[4].base_stat} </div> 
-                <div>Speed: {pokemon.stats[5].base_stat} </div> 
+                <div><b>HP:</b> </div> 
+                <div className="rect" style={{width: pokemon.stats[0].base_stat*2}} >{pokemon.stats[0].base_stat} </div>
+
+                <div><b>Atk:</b> </div>
+                <div className="rect" style={{width: pokemon.stats[1].base_stat*2}} >{pokemon.stats[1].base_stat}</div> 
+
+                <div><b>Atk Spe:</b> </div>
+                <div className="rect" style={{width: pokemon.stats[3].base_stat*2}} >{pokemon.stats[3].base_stat}</div>   
+
+                <div><b>Def:</b> </div>
+                <div className="rect" style={{width: pokemon.stats[2].base_stat*2}} >{pokemon.stats[2].base_stat}</div>  
+
+                <div><b>Def Spe:</b> </div> 
+                <div className="rect" style={{width: pokemon.stats[4].base_stat*2}} >{pokemon.stats[4].base_stat}</div> 
+
+                <div><b>Speed:</b> </div>
+                <div className="rect" style={{width: pokemon.stats[5].base_stat*2}} >{pokemon.stats[5].base_stat}</div>  
+
             </div>
              
             <div className="poke_evolutions">
                 <h2>Evolutions</h2>
-                {ifEvoOne &&
-                    <Link to={`/pokemondetails/${evoOneName}`} >
-                        <div className="evo_one">
-                            <div>Evo 1: {evoOneName} </div>
-                            <img src={evoOneSprite} alt="Evolution 1 image"/>
-                        </div>
-                        
-                    </Link>
-                }
-                {ifEvoTwo &&
-                    <Link to={`/pokemondetails/${evoTwoName}`} >
-                        <div className="evo_two">
-                            <div>Evo 2: {evoTwoName} </div>
-                            <img src={evoTwoSprite} alt="Evolution 2 image"/>
-                        </div>
-                    </Link>
-                }
-                {ifEvoThree &&
-                    <Link to={`/pokemondetails/${evoThreeName}`} >
-                        <div className="evo_three">
-                            <div>Evo 3: {evoThreeName} </div>
-                            <img src={evoThreeSprite} alt="Evolution 3 image"/>
-                        </div>
-                    </Link>
-                }
+                <div className="evolutions">
+                    {ifEvoOne &&
+                        <Link to={`/pokemondetails/${evoOneName}`} >
+                            <div className="evo_one">
+                                <img src={evoOneSprite} alt="Evolution 1 image" className={typeA} />
+                                <div>1 <b>{evoOneName}</b></div>
+                            </div>
+                            
+                        </Link>
+                    }
+                    {ifEvoTwo &&
+                        <Link to={`/pokemondetails/${evoTwoName}`} >
+                            <div className="evo_two">
+                                <img src={evoTwoSprite} alt="Evolution 2 image" className={typeA} />
+                                <div>2 <b>{evoTwoName}</b></div>
+                            </div>
+                        </Link>
+                    }
+                    {ifEvoThree &&
+                        <Link to={`/pokemondetails/${evoThreeName}`} >
+                            <div className="evo_three">
+                                <img src={evoThreeSprite} alt="Evolution 3 image" className={typeA} />
+                                <div>3 <b>{evoThreeName}</b></div>
+                            </div>
+                        </Link>
+                    }
+                </div>
             </div>
         </div>
         }
