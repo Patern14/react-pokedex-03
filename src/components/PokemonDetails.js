@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useParams, Link} from "react-router-dom";
 
+/* TODO: ================================================================
+    Next / Previous pokemon
+    Random Pokemon
+========================================================================*/
+
 const PokemonDetails = () => {
     //console.log("%cPokemonDetails COMPONENT", "color:magenta; font-size:25px")
 
@@ -64,7 +69,7 @@ const PokemonDetails = () => {
             setEvoThreeSprite(data.sprites.other.dream_world.front_default)
         });
 
-    /* Types and background color ================================= */
+    /* Types and background colors ================================= */
     const typeA = pokemon && pokemon.types[0].type.name;
     const typeB = pokemon && pokemon.types[1] && pokemon.types[1].type.name;
 

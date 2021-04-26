@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from "react";
 import PokemonCard from "./PokemonCard";
 
+/* TODO: ================================================================
+    Check order by id before displaying pokemons
+    Display by generations
+========================================================================*/
+
 const PokemonList = () => {
     //console.log("%cPokemonList COMPONENT", "color:chartreuse; font-size:25px")
     

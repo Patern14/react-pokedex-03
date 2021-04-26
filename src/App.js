@@ -6,6 +6,11 @@ import Footer from "./components/Footer";
 import PokemonList from "./components/PokemonList";
 import PokemonDetails from "./components/PokemonDetails";
 
+/* TODO: ================================================================
+    Random Pokemon
+    NavBar
+========================================================================*/
+
 function App() {
 
   return (
