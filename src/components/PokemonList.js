@@ -19,7 +19,7 @@ const PokemonList = () => {
 
         setLoadMore(data.next);
 
-        function createPokemonObject (result) {
+        function createPokemonObject(result) {
             result.forEach(async (pokemon) => {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
                 const data = await res.json();

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useParams, Link} from "react-router-dom";
+import RandomPokemon from "./RandomPokemon";
 
 /* TODO: ================================================================
     Next / Previous pokemon
@@ -22,7 +23,6 @@ const PokemonDetails = () => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${slug}/`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
                 setPokemon(data)
 
                 fetch(data.species.url)
@@ -86,10 +86,10 @@ const PokemonDetails = () => {
             <div className="poke_infos">
                 <h2>Infos</h2>
                 <div id="portrait_gen">{species && species.generation.name} </div>    {/* TODO: case styling */}
-                <div className={`pokeType ${typeA}`} ><b>Type 1:</b>  {typeA}</div> 
-                <div className={`pokeType ${typeB}`} ><b>Type 2:</b>  {typeB}</div> 
-                <div><b>Height:</b>  {pokemon.height/10} m</div> 
-                <div><b>Weight:</b>  {pokemon.weight/10} kg </div> 
+                <div className={`pokeType ${typeA}`} ><b>Type 1:</b> {typeA}</div> 
+                <div className={`pokeType ${typeB}`} ><b>Type 2:</b> {typeB}</div> 
+                <div><b>Height:</b> {pokemon.height/10} m</div> 
+                <div><b>Weight:</b> {pokemon.weight/10} kg</div> 
             </div>
 
             <div className="poke_stats">
@@ -123,7 +123,6 @@ const PokemonDetails = () => {
                                 <img src={evoOneSprite} alt="Evolution 1 image" className={typeA} />
                                 <div>1 <b>{evoOneName}</b></div>
                             </div>
-                            
                         </Link>
                     }
                     {ifEvoTwo &&

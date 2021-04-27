@@ -55,6 +55,11 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
   text-transform: uppercase;
 }
 
+.btn-test {
+  margin: 1rem;
+  padding: 1rem 2rem;
+}
+
 /* ==============================================================
     Header
 ============================================================== */
@@ -212,7 +217,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  width: 80%;
+  width: 90%;
   height: 65vh;
 
   box-shadow: 2px 3px 5px 2px grey;
@@ -295,4 +300,11 @@ footer {
   transform: scale(1.1);
 }
 
+/* Random pokemon component ========================================================================== */
+.random_pokemon_component {
+  outline: 5px solid green;
+  margin: 1rem;
+  padding: 1rem;
+  background: chartreuse;
+}
 
