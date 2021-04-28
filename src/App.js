@@ -8,11 +8,13 @@ import PokemonDetails from "./components/PokemonDetails";
 import RandomPokemon from "./components/RandomPokemon";
 import NextPokemon from "./components/NextPokemon";
 import PreviousPokemon from "./components/PreviousPokemon";
+import Navbar from "./components/Navbar";
 
 /* TODO: ================================================================
     Sprites for generations 6+
     NavBar
     Add pokemons to favorite list
+    Add favicon
 ========================================================================*/
 
 function App() {
@@ -24,19 +26,17 @@ function App() {
           <Header />
         </Link>
 
-        <Link to="/pokemonlist">
-          <button className="btn-test" >Go to pokemon list</button>
-        </Link>
+        <Navbar/>
 
-        <div className="prevRandNext_container">
+        {/* <Link to="/pokemonlist">
+          <button className="btn-test" >Go to pokemon list</button>
+        </Link> */}
+
+        {/* <div className="prevRandNext_container">
           <PreviousPokemon/>
           <RandomPokemon/>
           <NextPokemon/>
-        </div>
-
-        {/* <Link to="/randompokemon">
-          <button className="btn-test" >Go to random pokemon</button>
-        </Link> */}
+        </div> */}
 
         <Switch>  {/* We can have different routes inside Switch */}
           <Route exact path="/pokemonlist" component={PokemonList} />

@@ -1,5 +1,10 @@
 import React from "react";
 
+/* TODO: ================================================================
+    Add styles
+    Change H1 for a different typo, image, or logo
+========================================================================*/
+
 const Header = () => {
     return (
         <header>
