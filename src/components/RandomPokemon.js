@@ -6,7 +6,7 @@ const RandomPokemon = () => {
 
     const generateRandomNumber = () => {
                 setRandomPokemonNumber(Math.floor(Math.random() * 898 + 1))    // 898 is the total of pokemons in the API database.
-            }
+    }
 
     useEffect(() => {
 

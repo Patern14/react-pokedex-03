@@ -56,7 +56,7 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
 }
 
 .btn-test {
-  margin: 1rem;
+  margin: 0.5rem;
   padding: 1rem 2rem;
 }
 
@@ -299,12 +299,36 @@ footer {
 .evo_one:hover, .evo_two:hover, .evo_three:hover {
   transform: scale(1.1);
 }
+/* PrevRandNext container ========================================================================== */
+.prevRandNext_container {
+  outline: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+  padding: 0.5rem;
+}
 
 /* Random pokemon component ========================================================================== */
 .random_pokemon_component {
+  outline: 5px solid blue;
+  margin: 0.5rem;
+  background: deepskyblue;
+}
+
+/* Next pokemon component ========================================================================== */
+.next_pokemon_component {
+  outline: 5px solid red;
+  margin: 0.5rem;
+  background: tomato;
+}
+
+/* Previous pokemon component ========================================================================== */
+.previous_pokemon_component {
   outline: 5px solid green;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 0.5rem;
   background: chartreuse;
 }
+
+
+
 

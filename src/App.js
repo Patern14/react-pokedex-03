@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import PokemonList from "./components/PokemonList";
 import PokemonDetails from "./components/PokemonDetails";
 import RandomPokemon from "./components/RandomPokemon";
+import NextPokemon from "./components/NextPokemon";
+import PreviousPokemon from "./components/PreviousPokemon";
 
 /* TODO: ================================================================
     Sprites for generations 6+
@@ -26,7 +28,11 @@ function App() {
           <button className="btn-test" >Go to pokemon list</button>
         </Link>
 
-        <RandomPokemon/>
+        <div className="prevRandNext_container">
+          <PreviousPokemon/>
+          <RandomPokemon/>
+          <NextPokemon/>
+        </div>
 
         {/* <Link to="/randompokemon">
           <button className="btn-test" >Go to random pokemon</button>
@@ -34,7 +40,7 @@ function App() {
 
         <Switch>  {/* We can have different routes inside Switch */}
           <Route exact path="/pokemonlist" component={PokemonList} />
-          <Route path="/randompokemon" component={RandomPokemon} />
+          {/* <Route path="/randompokemon" component={RandomPokemon} /> */}
           <Route path="/pokemondetails/:slug" component={PokemonDetails} />  {/* Allow url modif */}
         </Switch>
 

@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useParams, Link} from "react-router-dom";
-import RandomPokemon from "./RandomPokemon";
+/* import RandomPokemon from "./RandomPokemon"; */
 
 /* TODO: ================================================================
     Next / Previous pokemon
-    Random Pokemon
 ========================================================================*/
 
 const PokemonDetails = () => {
@@ -78,7 +77,7 @@ const PokemonDetails = () => {
         {pokemon && 
         <div className="pokemon_details" >
             <div className={`poke_portrait ${typeA}`} >
-                <h1>#{pokemon.id} </h1>
+                {/* <h1>#</h1> */}<h1 id="poke_id">{pokemon.id}</h1>
                 <img src={pokemon.sprites.other.dream_world.front_default} alt="poke sprite" className="portrait_img" />
                 <h2 className="portrait_name" >{pokemon.name} </h2>
             </div>
