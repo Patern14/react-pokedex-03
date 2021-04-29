@@ -7,6 +7,8 @@
 
     Footer
 
+    Navbar
+
     PokemonList
 
     PokemonCard
@@ -14,6 +16,10 @@
     Types Background
 
     PokemonDetails
+      Portrait
+      Infos
+      Stats
+      Evolutions
 */
 
 
@@ -32,11 +38,10 @@ a:any-link {
 }
 
 .app-container {
-  height: 100%;
-  outline: 1px solid #008000;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -55,32 +60,90 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
   text-transform: uppercase;
 }
 
-.btn-test {
-  margin: 0.5rem;
-  padding: 1rem 2rem;
-}
-
 /* ==============================================================
     Header
 ============================================================== */
 header {
-  background: linear-gradient(135deg, #ffde82 0%, #F4CE61 100%);
-  margin-bottom: 5vh;
+  /* background: linear-gradient(135deg, #ffde82 0%, #F4CE61 100%); */
+  background: linear-gradient(135deg, #FFCB05 0%, #C7A008 100%);
+  margin-bottom: 1rem;
 }
-.home_title {
-  font-size: 3rem;
+
+#pokemon_logo {
+  height: 5rem;
 }
-.home_title:hover {
+#pokemon_logo:hover {
   transform: scale(1.1);
 }
 
 /* ==============================================================
     Footer
 ============================================================== */
-footer {
-  background: linear-gradient(135deg, #2c2c2c 0%, #000000 100%);
-  color: #ffffff;
-  margin-top: 5vh;
+#footer {
+  height: 25vh;
+  background: linear-gradient(135deg, #3269B2 0%, #21386E 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.footer_link {
+  color: rgba(216,230,241,1);
+  text-decoration: none;
+  margin: 2rem 2rem 1rem 2rem;
+}
+.footer_link:hover, .footer_link:focus  {
+  text-decoration: underline;
+  /* opacity: 0.7; */
+}
+
+#social-icons-container {
+  display: flex;
+}
+.social-icon {
+  border: 2px solid white;
+  height: 4vh;
+  background: rgb(255, 255, 255);
+}
+#github-icon {
+  border-radius: 22%;
+}
+#linkedin-icon {
+  border-radius: 50%;
+}
+
+/* ==============================================================
+    Navbar
+============================================================== */
+nav {
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.nav_button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 16rem;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  box-shadow: 2px 3px 5px 2px grey;
+}
+.nav_button:hover {
+  background: rgb(218, 218, 218);
+}
+.nav_button:active {
+  transform: translateY(3px);
+}
+
+.nav_icon {
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 /* ==============================================================
@@ -223,7 +286,7 @@ footer {
   box-shadow: 2px 3px 5px 2px grey;
 }
 
-/* ==================================================== */
+/* Portrait ==================================================== */
 .poke_portrait {
   grid-area: 1 / 1 / 3 / 2;
   display: flex;
@@ -235,7 +298,43 @@ footer {
 }
 #poke_tag {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
   font-size: 1.5rem;
+}
+
+.previous_icon, .next_icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  box-shadow: 1px 2px 3px 1px grey;
+}
+.previous_icon:hover, .next_icon:hover, 
+.previous_icon:focus, .next_icon:focus {
+  background: white;
+}
+.previous_icon {
+  margin-right: 2rem;
+}
+.previous_icon:active {
+  transform: translateX(-3px);
+}
+.next_icon {
+  margin-left: 2rem;
+}
+.next_icon:active {
+  transform: translateX(3px);
+}
+
+.round_background {   /* Display option */
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  background: white;
+  border-radius: 50%;
+  /* border: 1px solid gray; */
 }
 .portrait_img {
   width: 300px;
@@ -245,7 +344,7 @@ footer {
   font-size: 2rem;
 }
 
-/* ===================================================== */
+/* Infos ===================================================== */
 .poke_infos {
   grid-area: 1 / 2 / 2 / 3;
   display: flex;
@@ -261,7 +360,7 @@ footer {
   padding: 0.2rem;
 }
 
-/* ===================================================== */
+/* Stats ===================================================== */
 .poke_stats {
   grid-area: 1 / 3 / 2 / 4;
   display: flex;
@@ -274,7 +373,7 @@ footer {
   margin-bottom: 0.2rem;
 }
 
-/* ==================================================== */
+/* Evolutions ==================================================== */
 .poke_evolutions {
   grid-area: 2 / 2 / 3/ 4;
   display: flex;
@@ -303,35 +402,9 @@ footer {
 .evo_one:hover, .evo_two:hover, .evo_three:hover {
   transform: scale(1.1);
 }
-/* PrevRandNext container ========================================================================== */
-.prevRandNext_container {
-  outline: 1px solid black;
-  display: flex;
-  justify-content: space-around;
-  margin: 1rem;
-  padding: 0.5rem;
-}
 
-/* Random pokemon component ========================================================================== */
-.random_pokemon_component {
-  outline: 5px solid blue;
-  margin: 0.5rem;
-  background: deepskyblue;
-}
 
-/* Next pokemon component ========================================================================== */
-.next_pokemon_component {
-  outline: 5px solid red;
-  margin: 0.5rem;
-  background: tomato;
-}
 
-/* Previous pokemon component ========================================================================== */
-.previous_pokemon_component {
-  outline: 5px solid green;
-  margin: 0.5rem;
-  background: chartreuse;
-}
 
 
 

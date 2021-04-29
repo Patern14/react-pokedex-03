@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
+import random from "../images/random.png";
 
 const RandomPokemon = () => {
     const [randomPokemonNumber, setRandomPokemonNumber] = useState("");
@@ -17,8 +18,9 @@ const RandomPokemon = () => {
     return (
         <div className="random_pokemon_component" >
             <Link to={`/pokemondetails/${randomPokemonNumber}`}>
-                <button className="btn-test" onClick={generateRandomNumber} >Random pokemon</button>
+                <button className="nav_button" onClick={generateRandomNumber} >Random pokemon <img className="nav_icon" src={random} alt=""/></button>
             </Link>
+            
         </div>
     )
 }

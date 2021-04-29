@@ -1,14 +1,10 @@
 import React from "react";
-
-/* TODO: ================================================================
-    Add styles
-    Change H1 for a different typo, image, or logo
-========================================================================*/
+import pokemon_logo from "../images/pokemon_logo.svg.png";
 
 const Header = () => {
     return (
         <header>
-            <h1 className="home_title" >POKEDEX</h1>
+            <img id="pokemon_logo" src={pokemon_logo} alt="Pokemon logo"/>
         </header>
     )
 }

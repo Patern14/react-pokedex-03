@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useParams, Link} from "react-router-dom";
+import next from "../images/next.png";
 
 const NextPokemon = () => {
     const [nextPokemonNumber, setNextPokemonNumber] = useState();
@@ -14,7 +15,7 @@ const NextPokemon = () => {
     return (
         <div className="next_pokemon_component" >
             <Link to={`/pokemondetails/${nextPokemonNumber}`}>
-                <button className="btn-test" >Next pokemon</button>
+                <img className="next_icon" src={next} alt="Next"/>
             </Link>
         </div>
     )

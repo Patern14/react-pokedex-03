@@ -4,6 +4,10 @@ import RandomPokemon from "./RandomPokemon";
 import NextPokemon from "./NextPokemon";
 import PreviousPokemon from "./PreviousPokemon";
 
+/* TODO: ================================================================
+    Get sprites for gen 6+
+========================================================================*/
+
 const PokemonDetails = () => {
     //console.log("%cPokemonDetails COMPONENT", "color:magenta; font-size:25px")
 
@@ -72,51 +76,56 @@ const PokemonDetails = () => {
 
     return (
         <>
-        <div className="prevRandNext_container">
-          <PreviousPokemon/>
-          {/* <RandomPokemon/> */}
-          <NextPokemon/>
-        </div>
-
         {pokemon && 
         <div className="pokemon_details" >
+            {/* Portrait ================================================================================================= */}
             <div className={`poke_portrait ${typeA}`} >
-                <h1 id="poke_tag"> <h1>#</h1> <h1 id="poke_id">{pokemon.id}</h1> </h1>
-                <img src={pokemon.sprites.other.dream_world.front_default} alt="poke sprite" className="portrait_img" />
-                <h2 className="portrait_name" >{pokemon.name} </h2>
+                <h1 id="poke_tag"> 
+                    <PreviousPokemon/> 
+                    <h1> # </h1> 
+                    <h1 id="poke_id"> {pokemon.id} </h1> 
+                    <NextPokemon/> 
+                </h1>
+                {/* <div className="round_background" > */}
+                    <img src={pokemon.sprites.other.dream_world.front_default} alt="poke sprite" className="portrait_img" />
+                {/* </div> */}
+                <h2 className="portrait_name" > {pokemon.name} </h2>
             </div>
 
+            {/* Infos ===================================================================================================== */}
             <div className="poke_infos">
                 <h2>Infos</h2>
-                <div id="portrait_gen">{species && species.generation.name} </div>    {/* TODO: case styling */}
-                <div className={`pokeType ${typeA}`} ><b>Type 1:</b> {typeA}</div> 
-                <div className={`pokeType ${typeB}`} ><b>Type 2:</b> {typeB}</div> 
-                <div><b>Height:</b> {pokemon.height/10} m</div> 
-                <div><b>Weight:</b> {pokemon.weight/10} kg</div> 
+                <div id="portrait_gen"> {species && species.generation.name} </div>    {/* TODO: case styling */}
+                <div className={`pokeType ${typeA}`}> <b>Type 1:</b> {typeA}</div> 
+                <div className={`pokeType ${typeB}`}> <b>Type 2:</b> {typeB}</div> 
+                <div> <b>Height:</b> {pokemon.height/10} m</div> 
+                <div> <b>Weight:</b> {pokemon.weight/10} kg</div> 
             </div>
 
+            {/* Stats ===================================================================================================== */}
             <div className="poke_stats">
                 <h2>Stats</h2>
-                <div><b>HP:</b> </div> 
-                <div className="rect" style={{width: pokemon.stats[0].base_stat*2}} >{pokemon.stats[0].base_stat} </div>
+                <div><b>HP:</b></div> 
+                <div className="rect" style={{width: pokemon.stats[0].base_stat*2}}> {pokemon.stats[0].base_stat} </div>
 
-                <div><b>Atk:</b> </div>
-                <div className="rect" style={{width: pokemon.stats[1].base_stat*2}} >{pokemon.stats[1].base_stat}</div> 
+                <div><b>Atk:</b></div>
+                <div className="rect" style={{width: pokemon.stats[1].base_stat*2}}> {pokemon.stats[1].base_stat}</div> 
 
-                <div><b>Atk Spe:</b> </div>
-                <div className="rect" style={{width: pokemon.stats[3].base_stat*2}} >{pokemon.stats[3].base_stat}</div>   
+                <div><b>Atk Spe:</b></div>
+                <div className="rect" style={{width: pokemon.stats[3].base_stat*2}}> {pokemon.stats[3].base_stat}</div>   
 
-                <div><b>Def:</b> </div>
-                <div className="rect" style={{width: pokemon.stats[2].base_stat*2}} >{pokemon.stats[2].base_stat}</div>  
+                <div><b>Def:</b></div>
+                <div className="rect" style={{width: pokemon.stats[2].base_stat*2}}> {pokemon.stats[2].base_stat}</div>  
 
-                <div><b>Def Spe:</b> </div> 
-                <div className="rect" style={{width: pokemon.stats[4].base_stat*2}} >{pokemon.stats[4].base_stat}</div> 
+                <div><b>Def Spe:</b></div> 
+                <div className="rect" style={{width: pokemon.stats[4].base_stat*2}}> {pokemon.stats[4].base_stat}</div> 
 
-                <div><b>Speed:</b> </div>
-                <div className="rect" style={{width: pokemon.stats[5].base_stat*2}} >{pokemon.stats[5].base_stat}</div>  
+                <div><b>Speed:</b></div>
+                <div className="rect" style={{width: pokemon.stats[5].base_stat*2}}> {pokemon.stats[5].base_stat}</div>  
 
             </div>
              
+            {/* Evolutions ================================================================================================= */}
             <div className="poke_evolutions">
                 <h2>Evolutions</h2>
                 <div className="evolutions">
