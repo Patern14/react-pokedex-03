@@ -8,10 +8,11 @@ import PokemonDetails from "./components/PokemonDetails";
 import Navbar from "./components/Navbar";
 
 /* TODO: ================================================================
-    Sprites for generations 6+
     Add pokemons to favorite list
     Display by generations
     Search pokemon by name or id
+    Check order by id before displaying pokemons
+    Handle composite-names
 ========================================================================*/
 
 function App() {
@@ -19,11 +20,14 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <Link to="/">
-          <Header />
-        </Link>
+        <div className="screen_top">
+          <Link to="/">
+            <Header />
+          </Link>
 
-        <Navbar/>
+          <Navbar/>
+        </div>
+        
 
         <Switch>  {/* We can have different routes inside Switch */}
           <Route exact path="/pokemonlist" component={PokemonList} />

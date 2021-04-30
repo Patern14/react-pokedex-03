@@ -17,8 +17,9 @@ const RandomPokemon = () => {
 
     return (
         <div className="random_pokemon_component" >
+            
             <Link to={`/pokemondetails/${randomPokemonNumber}`}>
-                <button className="nav_button" onClick={generateRandomNumber} >Random pokemon <img className="nav_icon" src={random} alt=""/></button>
+                <button className="nav_button random" onClick={generateRandomNumber} >Random pokemon <img className="nav_icon" src={random} alt=""/></button>
             </Link>
             
         </div>

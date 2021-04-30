@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {useParams, Link} from "react-router-dom";
-import RandomPokemon from "./RandomPokemon";
 import NextPokemon from "./NextPokemon";
 import PreviousPokemon from "./PreviousPokemon";
 
 /* TODO: ================================================================
-    Get sprites for gen 6+
+    Handle composite-names
 ========================================================================*/
 
 const PokemonDetails = () => {
-    //console.log("%cPokemonDetails COMPONENT", "color:magenta; font-size:25px")
 
     let {slug} = useParams();
     const [pokemon, setPokemon] = useState();
@@ -41,7 +39,7 @@ const PokemonDetails = () => {
         
     }, [slug]);
 
-    /* Evolutions and conditions ================================= */
+    /* Evolutions and conditions =============================================================== */
     const ifEvoOne = evolutions;
     const evoOneName = ifEvoOne && evolutions.chain.species.name;
 
@@ -51,26 +49,27 @@ const PokemonDetails = () => {
     const ifEvoThree = typeof evolutions != "undefined" && typeof evolutions.chain.evolves_to[0] != "undefined" && typeof evolutions.chain.evolves_to[0].evolves_to[0] != "undefined";
     const evoThreeName = ifEvoThree && evolutions.chain.evolves_to[0].evolves_to[0].species.name;
 
-    /* Get evolutions sprites ================================ */
+    /* Get evolutions sprites ================================================================ */
     ifEvoOne && fetch(`https://pokeapi.co/api/v2/pokemon/${evoOneName}/`)
         .then((res) => res.json())
         .then(data => {
-            setEvoOneSprite(data.sprites.other.dream_world.front_default)
+            //console.log(data)
+            setEvoOneSprite(data.sprites.other["official-artwork"].front_default)   // ["Something-else"] formatting to avoid error: 'else' is not defined.
         });
 
     ifEvoTwo && fetch(`https://pokeapi.co/api/v2/pokemon/${evoTwoName}/`)
         .then((res) => res.json())
         .then(data => {
-            setEvoTwoSprite(data.sprites.other.dream_world.front_default)
+            setEvoTwoSprite(data.sprites.other["official-artwork"].front_default)
         });
 
     ifEvoThree && fetch(`https://pokeapi.co/api/v2/pokemon/${evoThreeName}/`)
         .then((res) => res.json())
         .then(data => {
-            setEvoThreeSprite(data.sprites.other.dream_world.front_default)
+            setEvoThreeSprite(data.sprites.other["official-artwork"].front_default)
         });
 
-    /* Types and background colors ================================= */
+    /* Types and background colors =============================================================== */
     const typeA = pokemon && pokemon.types[0].type.name;
     const typeB = pokemon && pokemon.types[1] && pokemon.types[1].type.name;
 
@@ -87,7 +86,7 @@ const PokemonDetails = () => {
                     <NextPokemon/> 
                 </h1>
                 {/* <div className="round_background" > */}
-                    <img src={pokemon.sprites.other.dream_world.front_default} alt="poke sprite" className="portrait_img" />
+                    <img src={pokemon.sprites.other["official-artwork"].front_default} alt="poke sprite" className="portrait_img" />
                 {/* </div> */}
                 <h2 className="portrait_name" > {pokemon.name} </h2>
             </div>
@@ -102,26 +101,26 @@ const PokemonDetails = () => {
                 <div> <b>Weight:</b> {pokemon.weight/10} kg</div> 
             </div>
 
-            {/* Stats ===================================================================================================== */}
+            {/* Stats (MAX = 250) ===================================================================================================== */}
             <div className="poke_stats">
                 <h2>Stats</h2>
                 <div><b>HP:</b></div> 
-                <div className="rect" style={{width: pokemon.stats[0].base_stat*2}}> {pokemon.stats[0].base_stat} </div>
+                <div className="rect" style={{width: (pokemon.stats[0].base_stat/250 *100) +'%'}}> {pokemon.stats[0].base_stat} </div>
 
                 <div><b>Atk:</b></div>
-                <div className="rect" style={{width: pokemon.stats[1].base_stat*2}}> {pokemon.stats[1].base_stat}</div> 
-
-                <div><b>Atk Spe:</b></div>
-                <div className="rect" style={{width: pokemon.stats[3].base_stat*2}}> {pokemon.stats[3].base_stat}</div>   
+                <div className="rect" style={{width: (pokemon.stats[1].base_stat/250 *100) +'%'}}> {pokemon.stats[1].base_stat}</div> 
 
                 <div><b>Def:</b></div>
-                <div className="rect" style={{width: pokemon.stats[2].base_stat*2}}> {pokemon.stats[2].base_stat}</div>  
+                <div className="rect" style={{width: (pokemon.stats[2].base_stat/250 *100) +'%'}}> {pokemon.stats[2].base_stat}</div>  
+
+                <div><b>Atk Spe:</b></div>
+                <div className="rect" style={{width: (pokemon.stats[3].base_stat/250 *100) +'%'}}> {pokemon.stats[3].base_stat}</div>   
 
                 <div><b>Def Spe:</b></div> 
-                <div className="rect" style={{width: pokemon.stats[4].base_stat*2}}> {pokemon.stats[4].base_stat}</div> 
+                <div className="rect" style={{width: (pokemon.stats[4].base_stat/250 *100) +'%'}}> {pokemon.stats[4].base_stat}</div> 
 
                 <div><b>Speed:</b></div>
-                <div className="rect" style={{width: pokemon.stats[5].base_stat*2}}> {pokemon.stats[5].base_stat}</div>  
+                <div className="rect" style={{width: (pokemon.stats[5].base_stat/250 *100) +'%'}}> {pokemon.stats[5].base_stat}</div>  
 
             </div>
              

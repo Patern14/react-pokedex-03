@@ -7,7 +7,6 @@ import PokemonCard from "./PokemonCard";
 ========================================================================*/
 
 const PokemonList = () => {
-    //console.log("%cPokemonList COMPONENT", "color:chartreuse; font-size:25px")
     
     const [allPokemons, setAllPokemons] = useState([])
     const [loadMore, setLoadMore] = useState("https://pokeapi.co/api/v2/pokemon?limit=20")
@@ -56,7 +55,7 @@ const PokemonList = () => {
                     key={index}
                     id={pokemon.id} 
                     name={pokemon.name} 
-                    image={pokemon.sprites.other.dream_world.front_default} 
+                    image={pokemon.sprites.other["official-artwork"].front_default} 
                     type={pokemon.types[0].type.name}
                     typeb={pokemon.types[1] ? pokemon.types[1].type.name : ""}  // Add second type if exist.
                 />  

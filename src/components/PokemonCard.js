@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const PokemonCard = ({id, name, image, type, typeb}) => {
-    //console.log("%cPokemonCard COMPONENT", "color:lightgreen; font-size:25px")
 
     const style = `poke_card_content ${type}`
     const typeStyle = `type ${type}`
