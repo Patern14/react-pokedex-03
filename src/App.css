@@ -225,15 +225,17 @@ nav {
   font-size: 1.1rem;
 }
 
-.poke_sprite {
-  border: 6px inset rgb(231, 196, 0);
-  justify-self: center;
+.poke_sprite_container {
+  display: flex;
+  justify-content: center;
+  width: 11.5rem;
+  height: 8.8rem;
   margin: 0 auto;
-  padding: 0.2rem;
-  width: 11rem;
-  height: 8rem;
+  border: 6px inset rgb(231, 196, 0);
   background: rgb(255, 251, 239);
-  
+}
+.poke_sprite {
+  height: 100%;
 }
 
 .details-container {

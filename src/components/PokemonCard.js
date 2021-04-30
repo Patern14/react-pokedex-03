@@ -12,7 +12,9 @@ const PokemonCard = ({id, name, image, type, typeb}) => {
                 <div className={style} >
                     <h4 className="pokeId" >#0{id}</h4>
 
-                    <img src={image} alt={name} className="poke_sprite" />
+                    <div className="poke_sprite_container">
+                        <img src={image} alt={name} className="poke_sprite" />
+                    </div>
 
                     <div className="details-container">
                         <h4 className="name" >{name} </h4>

@@ -8,6 +8,8 @@ import PokemonDetails from "./components/PokemonDetails";
 import Navbar from "./components/Navbar";
 
 /* TODO: ================================================================
+    SOMETHING for the homepage...
+
     Add pokemons to favorite list
     Display by generations
     Search pokemon by name or id
