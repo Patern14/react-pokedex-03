@@ -2,6 +2,7 @@ https://patern14.github.io/react-pokedex-03/
 
 http://localhost:3000/
 
+![screenshots](List - 2021-05-01 102049.png)
 
 # Getting Started with Create React App
 
