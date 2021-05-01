@@ -64,9 +64,6 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
     Header
 ============================================================== */
 header {
-  /* display: flex;
-  flex-direction: column; */
-  /* background: linear-gradient(135deg, #ffde82 0%, #F4CE61 100%); */
   background: linear-gradient(135deg, #FFCB05 0%, #C7A008 100%);
 }
 
@@ -87,7 +84,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgb(255, 255, 255);
   margin-top: 5rem;
   padding: 2rem;
   font-size: 2rem;
@@ -107,7 +104,7 @@ header {
   display: flex;
 }
 .social-icon {
-  border: 2px solid white;
+  border: 2px solid rgb(255, 255, 255);
   height: 4vh;
   background: rgb(255, 255, 255);
 }
@@ -254,7 +251,7 @@ nav {
   display: inline-block;
   margin: 0 auto;
   padding: 0.1rem 1.2rem;
-  box-shadow: 2px 2px 2px 1px gray;
+  box-shadow: 2px 2px 2px 1px rgb(128, 128, 128);
 } 
 
 /* =================================================
@@ -299,7 +296,7 @@ nav {
   PokemonDetails
 ================================================== */
 .pokemon_details {
-  background: floralwhite;
+  background: rgb(255, 250, 240);
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -307,7 +304,7 @@ nav {
   width: 90%;
   height: 65vh;
 
-  box-shadow: 2px 3px 5px 2px grey;
+  box-shadow: 2px 3px 5px 2px rgb(128, 128, 128);
 }
 
 /* Portrait ==================================================== */
@@ -318,7 +315,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   margin: 1rem;
-  box-shadow: 2px 3px 5px 2px grey;
+  box-shadow: 2px 3px 5px 2px rgb(128, 128, 128);
 }
 #poke_tag {
   display: flex;
@@ -332,11 +329,11 @@ nav {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  box-shadow: 1px 2px 3px 1px grey;
+  box-shadow: 1px 2px 3px 1px rgb(128, 128, 128);
 }
 .previous_icon:hover, .next_icon:hover, 
 .previous_icon:focus, .next_icon:focus {
-  background: white;
+  background: rgb(255, 255, 255);
 }
 .previous_icon {
   margin-right: 2rem;
@@ -356,9 +353,8 @@ nav {
   justify-content: center;
   width: 250px;
   height: 250px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 50%;
-  /* border: 1px solid gray; */
 }
 .portrait_img {
   width: 300px;
@@ -422,7 +418,7 @@ nav {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: 2px 3px 5px 2px grey;
+  box-shadow: 2px 3px 5px 2px rgb(128, 128, 128);
 }
 .evo_one:hover, .evo_two:hover, .evo_three:hover {
   transform: scale(1.1);
