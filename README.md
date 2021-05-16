@@ -2,9 +2,9 @@ https://patern14.github.io/react-pokedex-03/
 
 http://localhost:3000/
 
-![Pokemon list](https://github.com/Patern14/react-pokedex-03/blob/master/screenshots/List%20-%202021-05-01%20102049.png)
+<img src="https://github.com/Patern14/react-pokedex-03/blob/master/screenshots/List%20-%202021-05-01%20102049.png" width="95%" />
 
-![Pokemon details](https://github.com/Patern14/react-pokedex-03/blob/master/screenshots/Details%20-%202021-05-01%20102319.png)
+<img src="https://github.com/Patern14/react-pokedex-03/blob/master/screenshots/Details%20-%202021-05-01%20102319.png" width="95%" />
 
 # Getting Started with Create React App
 
