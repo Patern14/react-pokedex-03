@@ -1,3 +1,5 @@
+https://pokedex04-c07c2.web.app/
+
 https://patern14.github.io/react-pokedex-03/
 
 http://localhost:3000/
